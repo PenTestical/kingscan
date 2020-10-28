@@ -1,6 +1,6 @@
 # nmapAutomator
-A script that you can run in the background!
-  
+A script that you can run in the background! 
+Modified by Pentestical: Added more directory and subdomain bruteforcing tools to it.
   
 # Summary
 I have created this script as I was preparing for my OSCP exam.  
