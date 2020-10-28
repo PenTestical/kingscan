@@ -1,5 +1,5 @@
 #!/bin/bash
-#by 21y4d
+#modified version by pentestical
 
 RED='\033[0;31m'
 YELLOW='\033[0;33m'
@@ -341,10 +341,18 @@ for line in $file; do
 			#echo "sslyze --regular $1 | tee recon/sslyze_$1_$port.txt"
 			echo "sslscan $1 | tee recon/sslscan_$1_$port.txt"
 			echo "gobuster dir -w /usr/share/wordlists/dirb/common.txt -l -t 30 -e -k -x $pages -u https://$1:$port -o recon/gobuster_$1_$port.txt"
+			echo "dirsearch -u https://$1:$port -f -e * -r | tee recon/dirsearch_$1_$port.txt"
 			echo "nikto -host https://$1:$port -ssl | tee recon/nikto_$1_$port.txt"
+			echo "dirb https://$1:$port /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt | tee recon/dirb_$1_$port.txt"
+			echo "wfuzz -c -w /usr/share/wfuzz/wordlist/dir/common.txt --hc 400,404,403 http://$1:$port | tee recon/wfuzz_$1_$port.txt"
+			echo "wfuzz -c -f sub-fighter -Z -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt --sc 200,202,204,301,302,307,403 http://$ip:$port | tee recon/wfuzz_subdomain_bruteforce_$1_$port.txt"
 		else
 			echo "gobuster dir -w /usr/share/wordlists/dirb/common.txt -l -t 30 -e -k -x $pages -u http://$1:$port -o recon/gobuster_$1_$port.txt"
+			echo "dirsearch -u http://$1:$port -f -e * -r | tee recon/dirsearch_$1_$port.txt"
 			echo "nikto -host $1:$port | tee recon/nikto_$1_$port.txt"
+			echo "dirb http://$1:$port  /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt | tee recon/dirb_$1_$port.txt"
+			echo "wfuzz -c -w /usr/share/wfuzz/wordlist/dir/common.txt --hc 400,404,403 http://$1:$port | tee recon/dirb_$1_$port.txt "
+			echo "wfuzz -c -f sub-fighter -Z -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt --sc 200,202,204,301,302,307,403 http://$ip:$port  | tee recon/wfuzz_subdomain_bruteforce_$1_$port.txt"
 		fi
 		echo ""
 	fi
