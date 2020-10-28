@@ -46,7 +46,9 @@ Other Recon tools used within the script include:
 * [enum4linux](https://github.com/portcullislabs/enum4linux)
 * [dnsrecon](https://github.com/darkoperator/dnsrecon)
 * [odat](https://github.com/quentinhardy/odat)
-  
+* [wfuzz](https://github.com/xmendez/wfuzz)
+* [dirsearch](https://github.com/maurosoria/dirsearch)
+* [dirbuster](https://github.com/KajanM/DirBuster)
   
 # Examples of use:
 ```bash
