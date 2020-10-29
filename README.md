@@ -59,7 +59,7 @@ Other Recon tools used within the script include:
 ```
 
 **If you want to use it anywhere on the system, create a shortcut using:**  
-`ln -s /PATH-TO-FOLDER/nmapAutomator.sh /usr/local/bin/`
+`ln -s /PATH-TO-FOLDER/oscp-scanner.sh /usr/local/bin/`
 
 
 # TODO features list
