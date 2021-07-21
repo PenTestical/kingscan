@@ -1,4 +1,4 @@
-# oscp-scanner
+# Nmap automator
 A script that you can run in the background! <br>
 Modified by Pentestical: Added more directory and subdomain bruteforcing tools to it.
   
